@@ -1,17 +1,19 @@
 // components/layout/Header.tsx
-
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">My Next.js App</h1>
-      <nav>
-        <Link href="/home" className="mr-4 hover:underline">Home</Link>
-        <Link href="/about" className="hover:underline">About</Link>
-      </nav>
-      
+    <header className="bg-gray-800 text-white p-4 flex justify-center gap-6">
+      <Link href="/home">
+        <a className="hover:underline">Home</a>
+      </Link>
+      <Link href="/about">
+        <a className="hover:underline">About</a>
+      </Link>
+      <Link href="/posts">
+        <a className="hover:underline">Posts</a>
+      </Link>
     </header>
   );
 };
