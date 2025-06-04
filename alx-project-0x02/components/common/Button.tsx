@@ -1,38 +1,25 @@
-// interfaces/index.ts
+// components/common/Button.tsx
+import React from "react";
+import type { ButtonProps } from "@/interfaces";
 
-export interface CardProps {
-  title: string;
-  content: string;
-}
+const sizeClasses = {
+  small: "text-sm py-1 px-3",
+  medium: "text-base py-2 px-4",
+  large: "text-lg py-3 px-6",
+};
 
-export interface ButtonProps {
-  label: string;
-  size: 'small' | 'medium' | 'large';
-  shape: 'rounded-sm' | 'rounded-md' | 'rounded-full';
-  onClick?: () => void;
-}
+const Button: React.FC<ButtonProps> = ({ label, size, shape, onClick }) => {
+  const sizeClass = sizeClasses[size] || sizeClasses.medium;
+  const shapeClass = shape; // e.g. "rounded-md"
 
-export interface PostProps {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+  return (
+    <button
+      onClick={onClick}
+      className={`bg-blue-500 text-white font-semibold ${sizeClass} ${shapeClass} hover:bg-blue-600 transition`}
+    >
+      {label}
+    </button>
+  );
+};
 
-export interface UserProps {
-  id: number;
-  name: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-  };
-}
-
-export interface HomeProps {
-  message: string;
-}
-
-// (If you already had other interfaces, keep them here too.)
+export default Button;
