@@ -1,6 +1,6 @@
 // components/common/Button.tsx
 import React from "react";
-import type { ButtonProps } from "@/interfaces";
+import { type ButtonProps } from "@/interfaces";
 
 const sizeClasses = {
   small: "text-sm py-1 px-3",
